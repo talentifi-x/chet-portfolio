@@ -1,0 +1,189 @@
+/* ==========================================================================
+   MEDIA - press / appearances page.
+   Reuses the design tokens and shared component classes from homepage.css
+   (.container, .section-label, .theme-toggle, .footer …) and adds the page
+   layout + theme-aware cards on top. Tokens invert under [data-theme="light"],
+   so a single set of rules covers both dark and light themes.
+   ========================================================================== */
+
+.chet-root .media-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 80% 50% at 80% -10%, rgba(11, 88, 68, 0.28), transparent 60%),
+    linear-gradient(180deg, var(--ink-0) 0%, var(--ink-1) 100%);
+}
+
+/* ---------- HERO ---------- */
+.chet-root .media-hero {
+  padding: 160px 0 56px;
+}
+@media (max-width: 880px) {
+  .chet-root .media-hero {
+    padding: 130px 0 40px;
+  }
+}
+.chet-root .media-hero__title {
+  font-family: var(--f-heading);
+  font-weight: 400;
+  font-size: clamp(40px, 6vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  margin-top: 18px;
+}
+.chet-root .media-hero__title em {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--text-1);
+}
+.chet-root .media-hero__sub {
+  margin-top: 22px;
+  max-width: 560px;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--text-1);
+}
+
+/* ---------- GRID ---------- */
+.chet-root .media-list {
+  padding: 24px 0 120px;
+}
+.chet-root .media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+@media (max-width: 980px) {
+  .chet-root .media-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 620px) {
+  .chet-root .media-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- CARD ---------- */
+.chet-root .media-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  border-radius: 16px;
+  border: 1px solid var(--ink-border);
+  background: var(--ink-2);
+  color: inherit;
+  overflow: hidden;
+  transition:
+    transform 0.4s var(--ease),
+    border-color 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+/* Accent line that grows in on hover, echoing the section labels. */
+.chet-root .media-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--em-light), transparent);
+  box-shadow: 0 0 12px var(--em-glow);
+  transition: width 0.45s var(--ease);
+}
+
+/* Optional article image (full-bleed at the top of the card). */
+.chet-root .media-card__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--em-deep);
+}
+.chet-root .media-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s var(--ease);
+}
+.chet-root .media-card:hover .media-card__media img {
+  transform: scale(1.05);
+}
+
+.chet-root .media-card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 28px;
+}
+.chet-root .media-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--em-light);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.35),
+    0 6px 20px rgba(0, 0, 0, 0.2);
+}
+.chet-root .media-card:hover::before {
+  width: 100%;
+}
+
+.chet-root .media-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.chet-root .media-card__type {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--em-light);
+  padding: 5px 10px;
+  border: 1px solid var(--ink-border);
+  border-radius: 5px;
+  background: var(--em-soft);
+}
+.chet-root .media-card__outlet {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-2);
+}
+.chet-root .media-card__title {
+  font-family: var(--f-heading);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: var(--text-0);
+  margin-bottom: 12px;
+}
+.chet-root .media-card__excerpt {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--text-1);
+  flex: 1;
+}
+.chet-root .media-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--em-light);
+  transition: gap 0.3s var(--ease);
+}
+.chet-root .media-card:hover .media-card__cta {
+  gap: 14px;
+}
+.chet-root .media-card__cta svg {
+  width: 14px;
+  height: 14px;
+}

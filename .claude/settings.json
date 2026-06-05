@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm add *)",
+      "Bash(node -e \"const p=require\\('./node_modules/next-sanity/package.json'\\); console.log\\(Object.keys\\(p.exports\\)\\)\")",
+      "Bash(node -e \"const m=require\\('./node_modules/next-sanity/dist/studio/index.js'\\); console.log\\(Object.keys\\(m\\)\\)\")",
+      "Bash(pnpm build *)",
+      "Bash(node -e \"const m=require\\('@sanity/image-url'\\); console.log\\('named:', Object.keys\\(m\\)\\)\")",
+      "Bash(pnpm lint *)",
+      "Bash(pnpm seed *)",
+      "Bash(curl -s http://localhost:3941/blog)",
+      "Bash(curl -s http://localhost:3941/blog/the-committee-problem)",
+      "Bash(curl -s \"https://yj6xi8uf.api.sanity.io/v2024-10-01/data/query/production?query=*%5B%5D%7B_type%7D\")",
+      "Bash(curl -s \"https://yj6xi8uf.api.sanity.io/v2024-10-01/data/query/production?query=*%5B_id%3D%3D%22post.committee-problem%22%5D%7Btitle%7D\")",
+      "Bash(node -e \"console.log\\('SANITY_API_TOKEN length:', \\(process.env.SANITY_API_TOKEN||''\\).length\\)\")",
+      "Bash(curl -s \"https://yj6xi8uf.api.sanity.io/v2024-10-01/data/query/production?query=*%5B_type%3D%3D%22sanity.imageAsset%22%5D.originalFilename\")",
+      "Bash(curl -s \"https://yj6xi8uf.api.sanity.io/v2024-10-01/data/query/production?query=*%5B_type%20in%20%5B%22author%22%2C%22category%22%2C%22post%22%5D%5D%7B_id%2C_type%7D\")",
+      "Bash(node --env-file=.env -e \"const t=process.env.SANITY_API_TOKEN||''; console.log\\('token len via --env-file:', t.length, 'prefix:', t.slice\\(0,3\\)\\)\")",
+      "Bash(curl -s \"https://yj6xi8uf.api.sanity.io/v2024-10-01/data/query/production?query=*%5B_type%3D%3D%22post%22%5D%7Btitle%2C%22slug%22%3Aslug.current%7D\")",
+      "Bash(curl -s \"https://yj6xi8uf.api.sanity.io/v2024-10-01/data/query/production?query=*%5B_type%3D%3D%22post%22%5D%7Btitle%7D%7C%7B%22n%22%3Acount\\(%40\\)%7D\")",
+      "Bash(curl -s \"https://yj6xi8uf.apicdn.sanity.io/v2024-10-01/data/query/production?query=count\\(*%5B_type%3D%3D%22post%22%5D\\)\")",
+      "Bash(curl -s \"https://yj6xi8uf.api.sanity.io/v2024-10-01/data/query/production?query=count\\(*%5B_type%3D%3D%22post%22%5D\\)\")",
+      "Bash(node --env-file=.env -e ' *)",
+      "Bash(curl -s \"https://yj6xi8uf.api.sanity.io/v2024-10-01/data/query/production?query=count\\(*%5B_type%3D%3D%22post%22%5D\\)&perspective=published\")",
+      "Bash(curl -s \"https://yj6xi8uf.api.sanity.io/v2024-10-01/data/query/production?query=*%5B_type%3D%3D%22post%22%5D.slug.current\")"
+    ]
+  }
+}
