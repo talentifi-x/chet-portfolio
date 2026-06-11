@@ -32,6 +32,15 @@ const items: MediaItem[] = [
     href: "https://hrtoday.in/insights/amoral-drift-the-ai-hiring-risk-nobody-in-talent-acquisition-is-talking-about/",
     image: "https://hrtoday.in/wp-content/uploads/2026/05/HR-TODAY-SUNIL-54-2.png",
   },
+  {
+    outlet: "CXOToday",
+    type: "Feature",
+    title: "Building Trust in AI Workflows: Talentifi-X's Blueprint for Modern Enterprise Hiring",
+    excerpt:
+      "Why legacy applicant tracking systems and keyword filters fall short - and how trust-centred AI workflows help enterprises identify high-velocity learners and the precise skills they need.",
+    href: "https://cxotoday.com/corner-office/building-trust-in-ai-workflows-talentifi-xs-blueprint-for-modern-enterprise-hiring/",
+    image: "/images/cxotoday-talentifi-x.jpg",
+  },
 ];
 
 const arrow = (
@@ -71,7 +80,7 @@ export default function MediaPage() {
               {items.map((item) => (
                 <a
                   key={item.title}
-                  className={`media-card${item.image ? "media-card--has-media" : ""}`}
+                  className={`media-card${item.image ? " media-card--has-media" : ""}`}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
