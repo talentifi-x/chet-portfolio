@@ -31,6 +31,20 @@ export const postBySlugQuery = groq`
   }
 `;
 
+// Recent posts excluding the one being viewed - used by the post sidebar widget.
+export const recentPostsQuery = groq`
+  *[_type == "post" && defined(slug.current) && slug.current != $slug]
+    | order(publishedAt desc)[0...5] {
+    _id,
+    title,
+    "slug": slug.current,
+    publishedAt,
+    "readingTime": round(length(pt::text(body)) / 5 / 180) + 1,
+    mainImage,
+    "categories": categories[]->title
+  }
+`;
+
 // Just the slugs - used by generateStaticParams.
 export const postSlugsQuery = groq`
   *[_type == "post" && defined(slug.current)]{ "slug": slug.current }

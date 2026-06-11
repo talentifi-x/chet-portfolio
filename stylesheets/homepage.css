@@ -81,7 +81,10 @@ html {
   background: var(--ink-0);
   color: var(--text-0);
   line-height: 1.55;
-  overflow-x: hidden;
+  /* `clip` (not `hidden`) prevents horizontal scrollbars without turning
+     .chet-root into a scroll container - which would break `position: sticky`
+     descendants like the blog's recent-posts rail. */
+  overflow-x: clip;
   font-feature-settings: "ss01", "cv11";
   transition: var(--theme-trans);
 }

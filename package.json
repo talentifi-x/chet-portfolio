@@ -9,7 +9,7 @@
     "lint": "eslint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "seed": "node --env-file=.env scripts/seed.mts"
+    "seed": "node --env-file=.env.local scripts/seed.mts"
   },
   "dependencies": {
     "@portabletext/react": "^6.2.0",

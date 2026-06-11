@@ -3,12 +3,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import PortableTextRenderer from "@/components/portable-text";
+import RecentPosts from "@/components/recent-posts";
 import SiteFooter from "@/components/site-footer";
 import SiteNav from "@/components/site-nav";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { urlForImage } from "@/sanity/lib/image";
-import { postBySlugQuery, postSlugsQuery } from "@/sanity/lib/queries";
-import type { Post } from "@/sanity/lib/types";
+import { postBySlugQuery, postSlugsQuery, recentPostsQuery } from "@/sanity/lib/queries";
+import type { Post, PostListItem } from "@/sanity/lib/types";
 
 import "../../../stylesheets/homepage.css";
 import "../../../stylesheets/blog.css";
@@ -30,6 +31,17 @@ async function getPost(slug: string): Promise<Post | null> {
     });
   } catch {
     return null;
+  }
+}
+
+async function getRecentPosts(slug: string): Promise<PostListItem[]> {
+  try {
+    return await sanityFetch<PostListItem[]>({
+      query: recentPostsQuery,
+      params: { slug },
+    });
+  } catch {
+    return [];
   }
 }
 
@@ -73,7 +85,7 @@ const arrow = (
 
 export default async function BlogPostPage({ params }: Params) {
   const { slug } = await params;
-  const post = await getPost(slug);
+  const [post, recentPosts] = await Promise.all([getPost(slug), getRecentPosts(slug)]);
 
   if (!post) notFound();
 
@@ -87,7 +99,8 @@ export default async function BlogPostPage({ params }: Params) {
       <SiteNav />
 
       <main className="post-page">
-        <div className="post-article container">
+        <div className="post-layout container">
+        <article className="post-article">
           <Link href="/writing" className="post-back">
             <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path
@@ -142,6 +155,9 @@ export default async function BlogPostPage({ params }: Params) {
               More writing {arrow}
             </Link>
           </div>
+        </article>
+
+          <RecentPosts posts={recentPosts} />
         </div>
       </main>
 
