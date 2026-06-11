@@ -145,26 +145,23 @@ async function run() {
 
   // Images
   const avatarId = await uploadFromFile("public/images/Chetan-Mangalwedhe.png", "chetan-avatar.png");
-  const imgMachine = await uploadFromUrl(
-    UNSPLASH("photo-1620712943543-bcc4688e7485"),
-    "ai-iq-without-eq.jpg",
+  // Custom article covers (saved locally as .webp). New filenames so they don't
+  // de-dup against the earlier Unsplash placeholders still in the dataset.
+  const imgMachine = await uploadFromFile(
+    "public/images/ai-iq-without-eq.webp",
+    "ai-iq-without-eq.webp",
   );
-  const imgHistory = await uploadFromUrl(
-    UNSPLASH("photo-1568667256549-094345857637"),
-    "first-algorithm.jpg",
+  const imgHistory = await uploadFromFile(
+    "public/images/first-algorithm.webp",
+    "first-algorithm.webp",
   );
-  const imgGenZ = await uploadFromUrl(
-    UNSPLASH("photo-1522071820081-009f0129c71c"),
-    "gen-z-work.jpg",
+  const imgGenZ = await uploadFromFile("public/images/gen-z-work.webp", "gen-z-work.webp");
+  const imgPsych = await uploadFromFile("public/images/ai-adoption.webp", "ai-adoption.webp");
+  const imgTrust = await uploadFromFile(
+    "public/images/trust-infrastructure.webp",
+    "trust-infrastructure.webp",
   );
-  const imgPsych = await uploadFromUrl(
-    UNSPLASH("photo-1531545514256-b1400bc00f31"),
-    "ai-adoption.jpg",
-  );
-  const imgTrust = await uploadFromUrl(
-    UNSPLASH("photo-1524492412937-b28074a5d7da"),
-    "trust-infrastructure.jpg",
-  );
+  // No custom image yet for the staffing/Porter article - keep the Unsplash cover.
   const imgStaffing = await uploadFromUrl(
     UNSPLASH("photo-1521737604893-d14cc237f11d"),
     "staffing-porter.jpg",
