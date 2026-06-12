@@ -148,26 +148,26 @@ async function run() {
     "public/images/Chetan-Mangalwedhe.png",
     "chetan-avatar.png",
   );
-  // Custom article covers (saved locally as .webp). New filenames so they don't
-  // de-dup against the earlier Unsplash placeholders still in the dataset.
+  // Custom article covers (saved locally as .webp). The upload filename carries
+  // a version suffix so re-seeding with refreshed artwork uploads new assets
+  // instead of de-duping against the previous covers already in the dataset.
   const imgMachine = await uploadFromFile(
     "public/images/ai-iq-without-eq.webp",
-    "ai-iq-without-eq.webp",
+    "ai-iq-without-eq-v2.webp",
   );
   const imgHistory = await uploadFromFile(
     "public/images/first-algorithm.webp",
-    "first-algorithm.webp",
+    "first-algorithm-v2.webp",
   );
-  const imgGenZ = await uploadFromFile("public/images/gen-z-work.webp", "gen-z-work.webp");
-  const imgPsych = await uploadFromFile("public/images/ai-adoption.webp", "ai-adoption.webp");
+  const imgGenZ = await uploadFromFile("public/images/gen-z-work.webp", "gen-z-work-v2.webp");
+  const imgPsych = await uploadFromFile("public/images/ai-adoption.webp", "ai-adoption-v2.webp");
   const imgTrust = await uploadFromFile(
     "public/images/trust-infrastructure.webp",
-    "trust-infrastructure.webp",
+    "trust-infrastructure-v2.webp",
   );
-  // No custom image yet for the staffing/Porter article - keep the Unsplash cover.
-  const imgStaffing = await uploadFromUrl(
-    UNSPLASH("photo-1521737604893-d14cc237f11d"),
-    "staffing-porter.jpg",
+  const imgStaffing = await uploadFromFile(
+    "public/images/staffing-porter.webp",
+    "staffing-porter-v2.webp",
   );
 
   // Author
