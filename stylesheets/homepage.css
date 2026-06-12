@@ -2338,8 +2338,9 @@ html {
 
 /* ---------- THEME TOGGLE ---------- */
 .chet-root .theme-toggle {
-  width: 40px;
   height: 40px;
+  padding: 0 14px;
+  gap: 8px;
   border-radius: 999px;
   border: 1px solid var(--ink-border);
   background: rgba(255, 255, 255, 0.02);
@@ -2350,6 +2351,15 @@ html {
   cursor: pointer;
   transition: all 0.35s var(--ease);
   flex-shrink: 0;
+}
+/* Current-theme text label beside the icon ("Dark" with moon, "Light" with
+   sun). Visibility piggybacks on the .moon/.sun rules below. */
+.chet-root .theme-toggle__label {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  line-height: 1;
 }
 [data-theme="light"] .chet-root .theme-toggle {
   background: rgba(11, 23, 20, 0.02);

@@ -110,6 +110,8 @@ export default function SiteNav() {
                 strokeLinecap="round"
               />
             </svg>
+            <span className="theme-toggle__label moon">Dark</span>
+            <span className="theme-toggle__label sun">Light</span>
           </button>
         </div>
       </div>
