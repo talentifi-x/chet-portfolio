@@ -12,7 +12,7 @@ import "../../stylesheets/homepage.css";
 import "../../stylesheets/blog.css";
 
 export const metadata: Metadata = {
-  title: "Writing - Chetan Mangalwedhe",
+  title: "Talks - Chetan Mangalwedhe",
   description: "Essays on hiring, AI, history, and the questions most people are too busy to ask.",
 };
 
@@ -84,7 +84,7 @@ export default async function BlogIndexPage() {
                   return (
                     <article key={post._id} className="post">
                       <Link
-                        href={`/writing/${post.slug}`}
+                        href={`/talks/${post.slug}`}
                         className="post__link"
                         aria-label={post.title}
                       >

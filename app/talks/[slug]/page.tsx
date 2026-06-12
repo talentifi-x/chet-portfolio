@@ -100,62 +100,62 @@ export default async function BlogPostPage({ params }: Params) {
 
       <main className="post-page">
         <div className="post-layout container">
-        <article className="post-article">
-          <Link href="/writing" className="post-back">
-            <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path
-                d="M13 7H1m0 0l5-5M1 7l5 5"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            All writing
-          </Link>
-
-          <header className="post-head">
-            <div className="post-head__meta">
-              {post.categories?.length ? (
-                <span className="post__tag">{post.categories[0]}</span>
-              ) : null}
-              {post.publishedAt ? <span>{formatDate(post.publishedAt)}</span> : null}
-              {post.readingTime ? <span>{post.readingTime} min read</span> : null}
-            </div>
-            <h1 className="post-head__title">{post.title}</h1>
-            {post.excerpt ? <p className="post-head__excerpt">{post.excerpt}</p> : null}
-            {post.author?.name ? (
-              <div className="post-author">
-                {authorImg ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img className="post-author__avatar" src={authorImg} alt={post.author.name} />
-                ) : null}
-                <span className="post-author__name">{post.author.name}</span>
-              </div>
-            ) : null}
-          </header>
-
-          {heroImg ? (
-            <figure className="post-cover">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={heroImg} alt={post.title} />
-            </figure>
-          ) : null}
-
-          <div className="prose">
-            {post.body?.length ? (
-              <PortableTextRenderer value={post.body} />
-            ) : (
-              <p>This essay has no content yet.</p>
-            )}
-          </div>
-
-          <div className="post-foot">
-            <Link href="/writing" className="post__more">
-              More writing {arrow}
+          <article className="post-article">
+            <Link href="/talks" className="post-back">
+              <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path
+                  d="M13 7H1m0 0l5-5M1 7l5 5"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              All talks
             </Link>
-          </div>
-        </article>
+
+            <header className="post-head">
+              <div className="post-head__meta">
+                {post.categories?.length ? (
+                  <span className="post__tag">{post.categories[0]}</span>
+                ) : null}
+                {post.publishedAt ? <span>{formatDate(post.publishedAt)}</span> : null}
+                {post.readingTime ? <span>{post.readingTime} min read</span> : null}
+              </div>
+              <h1 className="post-head__title">{post.title}</h1>
+              {post.excerpt ? <p className="post-head__excerpt">{post.excerpt}</p> : null}
+              {post.author?.name ? (
+                <div className="post-author">
+                  {authorImg ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img className="post-author__avatar" src={authorImg} alt={post.author.name} />
+                  ) : null}
+                  <span className="post-author__name">{post.author.name}</span>
+                </div>
+              ) : null}
+            </header>
+
+            {heroImg ? (
+              <figure className="post-cover">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={heroImg} alt={post.title} />
+              </figure>
+            ) : null}
+
+            <div className="prose">
+              {post.body?.length ? (
+                <PortableTextRenderer value={post.body} />
+              ) : (
+                <p>This essay has no content yet.</p>
+              )}
+            </div>
+
+            <div className="post-foot">
+              <Link href="/talks" className="post__more">
+                More talks {arrow}
+              </Link>
+            </div>
+          </article>
 
           <RecentPosts posts={recentPosts} />
         </div>

@@ -267,7 +267,15 @@ html {
 /* ---------- HERO ---------- */
 .chet-root .hero {
   position: relative;
-  padding: 180px 0 120px;
+  /* Full viewport on every device. svh tracks the *small* viewport so mobile
+     browser chrome (address bar) never crops the hero; the vh line is a
+     fallback for browsers without svh support. Content is vertically centred,
+     with top padding clearing the fixed nav. */
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 96px;
   overflow: hidden;
   background:
     radial-gradient(ellipse 80% 60% at 80% 20%, rgba(11, 88, 68, 0.35), transparent 60%),
@@ -331,6 +339,7 @@ html {
 }
 
 .chet-root .hero__inner {
+  width: 100%;
   display: grid;
   grid-template-columns: 1.35fr 1fr;
   gap: 80px;
@@ -340,11 +349,11 @@ html {
 }
 @media (max-width: 980px) {
   .chet-root .hero {
-    padding: 140px 0 80px;
+    padding: 120px 0 72px;
   }
   .chet-root .hero__inner {
     grid-template-columns: 1fr;
-    gap: 56px;
+    gap: 48px;
   }
 }
 
@@ -2287,6 +2296,11 @@ html {
 }
 .chet-root .footer__bottom span {
   color: var(--text-2);
+}
+/* Single-line copyright, centred. */
+.chet-root .footer__bottom--center {
+  justify-content: center;
+  text-align: center;
 }
 
 /* ---------- SCROLL REVEALS ---------- */

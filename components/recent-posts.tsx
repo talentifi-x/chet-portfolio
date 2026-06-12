@@ -31,7 +31,7 @@ export default function RecentPosts({ posts }: { posts: PostListItem[] }) {
               : null;
             return (
               <li key={post._id} className="recent-item">
-                <Link href={`/writing/${post.slug}`} className="recent-item__link">
+                <Link href={`/talks/${post.slug}`} className="recent-item__link">
                   <div className="recent-item__thumb">
                     {thumb ? (
                       // eslint-disable-next-line @next/next/no-img-element
@@ -56,8 +56,8 @@ export default function RecentPosts({ posts }: { posts: PostListItem[] }) {
             );
           })}
         </ul>
-        <Link href="/writing" className="recent-widget__all">
-          View all writing
+        <Link href="/talks" className="recent-widget__all">
+          View all talks
         </Link>
       </div>
     </aside>

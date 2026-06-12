@@ -19,7 +19,7 @@ const arrow = (
 export default function MediaCard({ item }: { item: MediaItem }) {
   return (
     <a
-      className={`media-card${item.image ? " media-card--has-media" : ""}`}
+      className={`media-card${item.image ? "media-card--has-media" : ""}`}
       href={item.href}
       target="_blank"
       rel="noopener noreferrer"

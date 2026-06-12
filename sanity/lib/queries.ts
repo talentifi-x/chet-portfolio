@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 
-// All posts, newest first - used by the /writing index.
+// All posts, newest first - used by the /talks index.
 export const postsQuery = groq`
   *[_type == "post" && defined(slug.current)] | order(publishedAt desc) {
     _id,
@@ -15,7 +15,7 @@ export const postsQuery = groq`
   }
 `;
 
-// A single post by slug - used by /writing/[slug].
+// A single post by slug - used by /talks/[slug].
 export const postBySlugQuery = groq`
   *[_type == "post" && slug.current == $slug][0] {
     _id,

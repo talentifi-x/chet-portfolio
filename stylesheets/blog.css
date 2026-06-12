@@ -116,6 +116,35 @@
   color: var(--em-light);
 }
 
+/* ---------- UNIFORM CARD ANATOMY ----------
+   Make every card identical so the grid reads as a clean, aligned matrix no
+   matter how long a title or excerpt is: same image crop ratio, title reserved
+   + clamped to 2 lines, excerpt reserved + clamped to 3 lines, and the CTA
+   pinned to the bottom. Combined with the grid's `align-items: stretch`, every
+   row and column lines up. */
+.chet-root .blog-list .blog-grid .post__media {
+  aspect-ratio: 16 / 10;
+}
+.chet-root .blog-list .blog-grid .post__title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* Reserve 2 lines so single-line titles still push the excerpt to the same y. */
+  min-height: calc(2 * 1.24em);
+}
+.chet-root .blog-list .blog-grid .post__excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: none;
+  min-height: calc(3 * 1.6em);
+}
+.chet-root .blog-list .blog-grid .post__more {
+  margin-top: auto;
+}
+
 /* ---------- EMPTY STATE ---------- */
 .chet-root .blog-empty {
   border: 1px dashed var(--ink-border);
