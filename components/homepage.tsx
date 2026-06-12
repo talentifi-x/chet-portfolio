@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+
+import HomeMedia from "@/components/home-media";
+
 import "../stylesheets/homepage.css";
 
 export default function Homepage() {
@@ -447,6 +450,9 @@ export default function Homepage() {
           <span>EST. 2003</span>
         </div>
       </section>
+
+      {/* ========== MEDIA PREVIEW ========== */}
+      <HomeMedia />
 
       {/* ========== ABOUT ========== */}
       <section className="about-section" id="about">

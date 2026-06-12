@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 
+import MediaCard from "@/components/media-card";
 import SiteFooter from "@/components/site-footer";
 import SiteNav from "@/components/site-nav";
+import { mediaItems } from "@/lib/media";
 
 import "../../stylesheets/homepage.css";
 import "../../stylesheets/media.css";
@@ -11,49 +13,6 @@ export const metadata: Metadata = {
   description:
     "Interviews, features, and columns across India's leading business and HR publications.",
 };
-
-// Media appearances. Replace the remaining sample `href`s with real article URLs.
-type MediaItem = {
-  outlet: string;
-  type: string;
-  title: string;
-  excerpt: string;
-  href: string;
-  image?: string;
-};
-
-const items: MediaItem[] = [
-  {
-    outlet: "HR Today",
-    type: "Insight",
-    title: "Amoral Drift: The AI Hiring Risk Nobody in Talent Acquisition Is Talking About",
-    excerpt:
-      "How AI hiring systems quietly learn yesterday's patterns and narrow tomorrow's pipelines - and why it demands governance and human oversight.",
-    href: "https://hrtoday.in/insights/amoral-drift-the-ai-hiring-risk-nobody-in-talent-acquisition-is-talking-about/",
-    image: "https://hrtoday.in/wp-content/uploads/2026/05/HR-TODAY-SUNIL-54-2.png",
-  },
-  {
-    outlet: "CXOToday",
-    type: "Feature",
-    title: "Building Trust in AI Workflows: Talentifi-X's Blueprint for Modern Enterprise Hiring",
-    excerpt:
-      "Why legacy applicant tracking systems and keyword filters fall short - and how trust-centred AI workflows help enterprises identify high-velocity learners and the precise skills they need.",
-    href: "https://cxotoday.com/corner-office/building-trust-in-ai-workflows-talentifi-xs-blueprint-for-modern-enterprise-hiring/",
-    image: "/images/cxotoday-talentifi-x.jpg",
-  },
-];
-
-const arrow = (
-  <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
-    <path
-      d="M1 7h12m0 0L8 2m5 5l-5 5"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
 
 export default function MediaPage() {
   return (
@@ -77,32 +36,8 @@ export default function MediaPage() {
         <section className="media-list">
           <div className="container">
             <div className="media-grid">
-              {items.map((item) => (
-                <a
-                  key={item.title}
-                  className={`media-card${item.image ? " media-card--has-media" : ""}`}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {item.image ? (
-                    <div className="media-card__media">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={item.image} alt={item.title} loading="lazy" />
-                    </div>
-                  ) : null}
-                  <div className="media-card__content">
-                    <div className="media-card__top">
-                      <span className="media-card__type">{item.type}</span>
-                      <span className="media-card__outlet">{item.outlet}</span>
-                    </div>
-                    <h3 className="media-card__title">{item.title}</h3>
-                    <p className="media-card__excerpt">{item.excerpt}</p>
-                    <span className="media-card__cta">
-                      Read on {item.outlet} {arrow}
-                    </span>
-                  </div>
-                </a>
+              {mediaItems.map((item) => (
+                <MediaCard key={item.title} item={item} />
               ))}
             </div>
           </div>
