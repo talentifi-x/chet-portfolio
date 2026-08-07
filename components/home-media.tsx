@@ -49,7 +49,7 @@ export default function HomeMedia() {
 
         <div className="home-media__grid reveal" data-delay="1">
           {shown.map((item) => (
-            <MediaCard key={item.title} item={item} />
+            <MediaCard key={item.href} item={item} />
           ))}
         </div>
 

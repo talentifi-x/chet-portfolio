@@ -37,7 +37,7 @@ export default function MediaPage() {
           <div className="container">
             <div className="media-grid">
               {mediaItems.map((item) => (
-                <MediaCard key={item.title} item={item} />
+                <MediaCard key={item.href} item={item} />
               ))}
             </div>
           </div>
