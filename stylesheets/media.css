@@ -184,9 +184,17 @@
   flex: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
 }
-/* The CXO Xperts wordmark is white, so it needs a dark chip to read. */
-.chet-root .media-card__logo[src*="cxo-xperts-word"] {
+/* The CXO Xperts wordmark is white, so it needs a dark chip to read. It's a
+   compact logo, so let it fill the chip (minimal padding) to read bigger. */
+.chet-root .media-card__logo[src*="cxo-xperts-logo"] {
   background: #101014;
+  padding: 1px 6px;
+  max-width: 200px;
+}
+/* Business Standard is compact too - let it fill more of the chip. */
+.chet-root .media-card__logo[src*="business-standard"] {
+  padding: 2px 7px;
+  max-width: 185px;
 }
 .chet-root .media-card__title {
   font-family: var(--f-heading);

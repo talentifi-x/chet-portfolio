@@ -65,7 +65,7 @@ export const mediaItems: MediaItem[] = [
       "A video conversation on trust, AI, and how enterprises should rethink talent acquisition.",
     href: "https://www.youtube.com/watch?v=z_ioiiUn_28",
     image: "https://img.youtube.com/vi/z_ioiiUn_28/maxresdefault.jpg",
-    logo: "/images/logos/cxo-xperts-word.png",
+    logo: "/images/logos/cxo-xperts-logo.png",
   },
   {
     outlet: "CXO Xperts",
@@ -75,7 +75,7 @@ export const mediaItems: MediaItem[] = [
       "The CXO Xperts conversation on building trust into AI-driven hiring, shared on LinkedIn.",
     href: "https://www.linkedin.com/feed/update/urn:li:share:7477682809650896896/",
     image: "https://img.youtube.com/vi/z_ioiiUn_28/maxresdefault.jpg",
-    logo: "/images/logos/cxo-xperts-word.png",
+    logo: "/images/logos/cxo-xperts-logo.png",
   },
   {
     outlet: "Business Standard",
