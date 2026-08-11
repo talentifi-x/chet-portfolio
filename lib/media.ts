@@ -10,6 +10,8 @@ export type MediaItem = {
   excerpt: string;
   href: string;
   image?: string;
+  /** Small square brand mark shown next to the outlet name. */
+  logo?: string;
 };
 
 export const mediaItems: MediaItem[] = [
@@ -21,6 +23,7 @@ export const mediaItems: MediaItem[] = [
       "An authored column on the skills, mindset, and AI-era realities students should understand before they step into today's job market.",
     href: "https://www.thehansindia.com/hans/education-careers/what-students-should-know-before-entering-the-job-market-1103472",
     image: "https://assets.thehansindia.com/h-upload/2026/07/31/1683654-job-market.webp",
+    logo: "/images/logos/hans-india.png",
   },
   {
     outlet: "Sugarmint",
@@ -31,6 +34,7 @@ export const mediaItems: MediaItem[] = [
     href: "https://sugermint.com/chetan-mangalwedhe-talentifi-x-interview/",
     image:
       "https://sugermint.com/wp-content/uploads/2026/07/Chetan-Mangalwedhe-Founder-CEO-of-TalentiFi-X-758x474.jpg",
+    logo: "/images/logos/sugarmint.png",
   },
   {
     outlet: "CXO Xperts",
@@ -39,7 +43,8 @@ export const mediaItems: MediaItem[] = [
     excerpt:
       "A video conversation on trust, AI, and how enterprises should rethink talent acquisition.",
     href: "https://www.youtube.com/watch?v=z_ioiiUn_28",
-    image: "https://img.youtube.com/vi/z_ioiiUn_28/hqdefault.jpg",
+    image: "https://img.youtube.com/vi/z_ioiiUn_28/maxresdefault.jpg",
+    logo: "/images/logos/cxo-xperts.png",
   },
   {
     outlet: "CXO Xperts",
@@ -48,7 +53,8 @@ export const mediaItems: MediaItem[] = [
     excerpt:
       "The CXO Xperts conversation on building trust into AI-driven hiring, shared on LinkedIn.",
     href: "https://www.linkedin.com/feed/update/urn:li:share:7477682809650896896/",
-    image: "https://img.youtube.com/vi/z_ioiiUn_28/hqdefault.jpg",
+    image: "https://img.youtube.com/vi/z_ioiiUn_28/maxresdefault.jpg",
+    logo: "/images/logos/cxo-xperts.png",
   },
   {
     outlet: "Business Standard",
@@ -60,6 +66,7 @@ export const mediaItems: MediaItem[] = [
     href: "https://www.business-standard.com/technology/artificial-intelligence/beyond-ai-engineers-sovereign-ai-may-redefine-india-s-it-talent-pyramid-126063000144_1.html",
     image:
       "https://bsmedia.business-standard.com/_media/bs/img/article/2026-06/10/full/1781073770-4974.JPG?im=FeatureCrop,size=(826,465)",
+    logo: "/images/logos/business-standard.png",
   },
   {
     outlet: "The Week",
@@ -70,6 +77,7 @@ export const mediaItems: MediaItem[] = [
     href: "https://www.theweek.in/news/biz-tech/2026/06/26/guest-opinion-ai-hiring-challenges.html",
     image:
       "https://img.theweek.in/content/dam/week/week/news/biz-tech/images/2025/1/31/ai-in-india.jpg?w=1248&h=650",
+    logo: "/images/logos/the-week.png",
   },
   {
     outlet: "HR Today",
@@ -79,6 +87,7 @@ export const mediaItems: MediaItem[] = [
       "A LinkedIn take on why today's AI is less an original intellect than a high-scale remix of human work.",
     href: "https://www.linkedin.com/feed/update/urn:li:activity:7475494796187287552",
     image: "https://hrtoday.in/wp-content/uploads/2026/06/HR-TODAY-SUNIL-14-10.png",
+    logo: "/images/logos/hr-today.png",
   },
   {
     outlet: "HR Today",
@@ -89,15 +98,17 @@ export const mediaItems: MediaItem[] = [
       "Why modern AI is less an autonomous intellect than a statistical remix of human output - and what that means for how we name and use it.",
     href: "https://hrtoday.in/insights/why-artificial-intelligence-should-be-renamed-duplicate-intelligence/",
     image: "https://hrtoday.in/wp-content/uploads/2026/06/HR-TODAY-SUNIL-14-10.png",
+    logo: "/images/logos/hr-today.png",
   },
   {
-    outlet: "CXOToday",
+    outlet: "CXO Today",
     type: "Feature",
     title: "Building Trust in AI Workflows: Talentifi-X's Blueprint for Modern Enterprise Hiring",
     excerpt:
       "Why legacy applicant tracking systems and keyword filters fall short - and how trust-centred AI workflows help enterprises identify high-velocity learners and the precise skills they need.",
     href: "https://cxotoday.com/corner-office/building-trust-in-ai-workflows-talentifi-xs-blueprint-for-modern-enterprise-hiring/",
     image: "/images/cxotoday-talentifi-x.jpg?v=2",
+    logo: "/images/logos/cxo-today.png",
   },
   {
     outlet: "HR Today",
@@ -107,6 +118,7 @@ export const mediaItems: MediaItem[] = [
       "A LinkedIn note on how AI hiring systems quietly learn yesterday's patterns and narrow tomorrow's pipelines.",
     href: "https://www.linkedin.com/feed/update/urn:li:activity:7465753766022094850",
     image: "https://hrtoday.in/wp-content/uploads/2026/05/HR-TODAY-SUNIL-54-2.png",
+    logo: "/images/logos/hr-today.png",
   },
   {
     outlet: "HR Today",
@@ -116,5 +128,6 @@ export const mediaItems: MediaItem[] = [
       "How AI hiring systems quietly learn yesterday's patterns and narrow tomorrow's pipelines - and why it demands governance and human oversight.",
     href: "https://hrtoday.in/insights/amoral-drift-the-ai-hiring-risk-nobody-in-talent-acquisition-is-talking-about/",
     image: "https://hrtoday.in/wp-content/uploads/2026/05/HR-TODAY-SUNIL-54-2.png",
+    logo: "/images/logos/hr-today.png",
   },
 ];

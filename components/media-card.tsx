@@ -33,7 +33,13 @@ export default function MediaCard({ item }: { item: MediaItem }) {
       <div className="media-card__content">
         <div className="media-card__top">
           <span className="media-card__type">{item.type}</span>
-          <span className="media-card__outlet">{item.outlet}</span>
+          <span className="media-card__outlet">
+            {item.logo ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img className="media-card__logo" src={item.logo} alt="" aria-hidden="true" loading="lazy" />
+            ) : null}
+            {item.outlet}
+          </span>
         </div>
         <h3 className="media-card__title">{item.title}</h3>
         <p className="media-card__excerpt">{item.excerpt}</p>

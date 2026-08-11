@@ -150,11 +150,23 @@
   background: var(--em-soft);
 }
 .chet-root .media-card__outlet {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   font-family: var(--f-mono);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--text-2);
+}
+.chet-root .media-card__logo {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  object-fit: contain;
+  background: #fff;
+  padding: 2px;
+  flex: none;
 }
 .chet-root .media-card__title {
   font-family: var(--f-heading);

@@ -1224,6 +1224,83 @@ html {
   margin: 48px 0 44px;
 }
 
+/* Homepage preview cards are title-first: the image gets more room, the outlet
+   name is emphasised, and the excerpt is dropped so each card reads as a clean
+   image + source + headline. Scoped to .home-media__grid so the full /media
+   page keeps its detailed cards. Responsive via the auto-fit grid above +
+   aspect-ratio, which scales the image with the card at every width. */
+/* 16:9 media so every landscape source fills the frame edge-to-edge - no
+   letterbox bars, no awkward crop. object-fit: cover (from media.css) does the
+   fitting. */
+.chet-root .home-media__grid .media-card__media {
+  aspect-ratio: 16 / 9;
+}
+.chet-root .home-media__grid .media-card__content {
+  padding: 22px 24px 24px;
+}
+.chet-root .home-media__grid .media-card__top {
+  margin-bottom: 16px;
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+/* Keep the type tag compact so it + the outlet chip fit on one line. */
+.chet-root .home-media__grid .media-card__type {
+  font-size: 9.5px;
+  padding: 4px 9px;
+  letter-spacing: 0.14em;
+}
+.chet-root .home-media__grid .media-card__title {
+  font-size: 19px;
+  margin-bottom: 0;
+}
+/* Title-only: drop the excerpt paragraph on the homepage preview. */
+.chet-root .home-media__grid .media-card__excerpt {
+  display: none;
+}
+.chet-root .home-media__grid .media-card__cta {
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+/* Premium outlet chip: an emerald-tinted glass pill holding the brand logo (in
+   a white disc so any logo reads on the dark card) + the highlighted name. */
+.chet-root .home-media__grid .media-card__outlet {
+  gap: 7px;
+  padding: 4px 11px 4px 5px;
+  border-radius: 999px;
+  color: var(--text-0);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--em-light) 16%, var(--ink-1)),
+    color-mix(in srgb, var(--em-light) 5%, var(--ink-2))
+  );
+  border: 1px solid color-mix(in srgb, var(--em-light) 32%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--text-0) 10%, transparent),
+    0 2px 8px rgba(0, 0, 0, 0.18);
+  transition:
+    border-color 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+/* Simple rounded-square brand tile - the logo fills it, so square marks like
+   CXO Xperts read cleanly with no white ring. */
+.chet-root .home-media__grid .media-card__logo {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  padding: 0;
+}
+.chet-root .home-media__grid .media-card:hover .media-card__outlet {
+  border-color: var(--em-light);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--text-0) 14%, transparent),
+    0 0 14px var(--em-glow);
+}
+
 /* ---------- WATCH ---------- */
 .chet-root .watch {
   padding: 140px 0 80px;
