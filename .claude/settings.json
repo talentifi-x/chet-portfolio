@@ -22,7 +22,10 @@
       "Bash(curl -s \"https://yj6xi8uf.api.sanity.io/v2024-10-01/data/query/production?query=count\\(*%5B_type%3D%3D%22post%22%5D\\)\")",
       "Bash(node --env-file=.env -e ' *)",
       "Bash(curl -s \"https://yj6xi8uf.api.sanity.io/v2024-10-01/data/query/production?query=count\\(*%5B_type%3D%3D%22post%22%5D\\)&perspective=published\")",
-      "Bash(curl -s \"https://yj6xi8uf.api.sanity.io/v2024-10-01/data/query/production?query=*%5B_type%3D%3D%22post%22%5D.slug.current\")"
+      "Bash(curl -s \"https://yj6xi8uf.api.sanity.io/v2024-10-01/data/query/production?query=*%5B_type%3D%3D%22post%22%5D.slug.current\")",
+      "mcp__claude_ai_Google_Drive__search_files",
+      "WebFetch(domain:www.adgully.com)",
+      "WebFetch(domain:www.theweek.in)"
     ]
   }
 }
