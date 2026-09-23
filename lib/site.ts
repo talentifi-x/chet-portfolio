@@ -45,6 +45,9 @@ export const AUTHOR = {
   sameAs: ["https://www.linkedin.com/in/chetan-mangalwedhe-chet-mann/"],
 } as const;
 
+/** Google Analytics 4 measurement ID (public by design - it ships in the page). */
+export const GA_MEASUREMENT_ID = "G-ZH4EWL7YN7";
+
 /** Brand colours reused by the manifest and the generated OG image. */
 export const BRAND = {
   accent: "#4ECCA3",
