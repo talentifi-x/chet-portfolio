@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import JsonLd from "@/components/json-ld";
 import SiteFooter from "@/components/site-footer";
 import SiteNav from "@/components/site-nav";
+import { blogSchema, breadcrumbSchema } from "@/lib/schema";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { urlForImage } from "@/sanity/lib/image";
 import { postsQuery } from "@/sanity/lib/queries";
@@ -11,9 +13,21 @@ import type { PostListItem } from "@/sanity/lib/types";
 import "../../stylesheets/homepage.css";
 import "../../stylesheets/blog.css";
 
+const TITLE = "Talks - Chetan Mangalwedhe";
+const DESCRIPTION =
+  "Essays on hiring, AI, history, and the questions most people are too busy to ask.";
+
 export const metadata: Metadata = {
-  title: "Talks - Chetan Mangalwedhe",
-  description: "Essays on hiring, AI, history, and the questions most people are too busy to ask.",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: "/talks" },
+  openGraph: {
+    type: "website",
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "/talks",
+  },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
 
 function formatDate(value?: string) {
@@ -51,6 +65,13 @@ export default async function BlogIndexPage() {
 
   return (
     <div className="chet-root">
+      <JsonLd data={blogSchema(posts)} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Talks", path: "/talks" },
+        ])}
+      />
       <SiteNav />
 
       <main className="blog-page">

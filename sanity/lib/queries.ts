@@ -49,3 +49,11 @@ export const recentPostsQuery = groq`
 export const postSlugsQuery = groq`
   *[_type == "post" && defined(slug.current)]{ "slug": slug.current }
 `;
+
+// Slugs plus publish dates - used by the sitemap for <lastmod>.
+export const sitemapPostsQuery = groq`
+  *[_type == "post" && defined(slug.current)] | order(publishedAt desc) {
+    "slug": slug.current,
+    publishedAt
+  }
+`;

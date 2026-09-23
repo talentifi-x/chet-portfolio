@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import JsonLd from "@/components/json-ld";
 import PortableTextRenderer from "@/components/portable-text";
 import RecentPosts from "@/components/recent-posts";
 import SiteFooter from "@/components/site-footer";
 import SiteNav from "@/components/site-nav";
+import { blogPostingSchema, breadcrumbSchema } from "@/lib/schema";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { urlForImage } from "@/sanity/lib/image";
 import { postBySlugQuery, postSlugsQuery, recentPostsQuery } from "@/sanity/lib/queries";
@@ -61,13 +63,34 @@ type Params = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
-  if (!post) return { title: "Post not found - Chetan Mangalwedhe" };
+  if (!post) {
+    // Keep unresolved slugs out of the index rather than letting a 404 shell
+    // get crawled.
+    return { title: "Post not found - Chetan Mangalwedhe", robots: { index: false } };
+  }
+
+  const title = `${post.title} - Chetan Mangalwedhe`;
+  const url = `/talks/${slug}`;
+
   return {
-    title: `${post.title} - Chetan Mangalwedhe`,
+    title,
     description: post.excerpt,
-    openGraph: post.mainImage
-      ? { images: [urlForImage(post.mainImage).width(1200).height(630).url()] }
-      : undefined,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      title,
+      description: post.excerpt,
+      url,
+      publishedTime: post.publishedAt,
+      authors: [post.author?.name ?? "Chetan Mangalwedhe"],
+      tags: post.categories,
+      // Falls back to the site-wide app/opengraph-image.tsx when a post has no
+      // cover image, so every post still gets a card.
+      ...(post.mainImage
+        ? { images: [urlForImage(post.mainImage).width(1200).height(630).url()] }
+        : {}),
+    },
+    twitter: { card: "summary_large_image", title, description: post.excerpt },
   };
 }
 
@@ -96,6 +119,14 @@ export default async function BlogPostPage({ params }: Params) {
 
   return (
     <div className="chet-root">
+      <JsonLd data={blogPostingSchema(post)} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Talks", path: "/talks" },
+          { name: post.title, path: `/talks/${post.slug}` },
+        ])}
+      />
       <SiteNav />
 
       <main className="post-page">
