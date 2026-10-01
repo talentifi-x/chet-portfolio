@@ -114,6 +114,55 @@
   transform: scale(1.05);
 }
 
+/* Branded cover used when a publisher's image is missing or blocked. Keeps the
+   16:9 frame so the grid rhythm never breaks, and reads as a deliberate press
+   tile rather than a hole where an image failed. */
+.chet-root .media-card__media--fallback {
+  background:
+    radial-gradient(120% 100% at 15% 0%, var(--em-light) 0%, transparent 58%),
+    linear-gradient(135deg, var(--em-mid) 0%, var(--em-deep) 100%);
+}
+/* Subtle diagonal hatch so the tile has texture instead of reading as flat. */
+.chet-root .media-card__media--fallback::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0px,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 11px
+  );
+  pointer-events: none;
+}
+.chet-root .media-card__fallback {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 18px;
+  box-sizing: border-box;
+}
+/* Outlets with no wordmark on file (e.g. NDTV) fall back to the name set in
+   the mono face, matching the card's other meta type. */
+.chet-root .media-card__fallback-name {
+  font-family: var(--f-mono);
+  font-size: 20px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  transition: transform 1s var(--ease);
+}
+.chet-root .media-card:hover .media-card__fallback-name {
+  transform: scale(1.05);
+}
+
 .chet-root .media-card__content {
   display: flex;
   flex-direction: column;
@@ -195,6 +244,17 @@
 .chet-root .media-card__logo[src*="business-standard"] {
   padding: 2px 7px;
   max-width: 185px;
+}
+/* Business Today's mark is a stacked square lockup rather than a wide wordmark,
+   so it is height-starved in the chip - trim the padding so it reads. */
+.chet-root .media-card__logo[src*="business-today"] {
+  padding: 2px 6px;
+}
+/* India Today and Deccan Herald are short, wide wordmarks - a touch more room. */
+.chet-root .media-card__logo[src*="deccan-herald"],
+.chet-root .media-card__logo[src*="lokmat-times"] {
+  padding: 7px 10px;
+  max-width: 175px;
 }
 .chet-root .media-card__title {
   font-family: var(--f-heading);
