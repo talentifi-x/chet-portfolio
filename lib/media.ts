@@ -119,7 +119,7 @@ export const mediaItems: MediaItem[] = [
   {
     outlet: "Hindustan Times",
     type: "Article",
-    title: "India Inc's Hiring Problem Is Showing Up on the Balance Sheet",
+    title: "India Inc's Hiring Reset Is Showing Up on the Balance Sheet",
     excerpt:
       "An authored column on how the real cost of a broken hiring process stops being an HR metric and starts being a financial one.",
     href: "https://www.hindustantimes.com/ht-insight/economy/india-inc-s-hiring-reset-is-showing-up-on-the-balance-sheet-101787998487133.html",
@@ -135,26 +135,6 @@ export const mediaItems: MediaItem[] = [
     href: "https://www.rediff.com/getahead/report/is-ai-rejecting-your-cv-9-mistakes-to-avoid/20260813.htm",
     image: "/images/media/cv-screening.jpg",
     logo: "/images/logos/rediff-word.png",
-  },
-  {
-    outlet: "Hindustan Times",
-    type: "Article",
-    title: "India Inc's Hiring Reset Is Showing Up on the Balance Sheet",
-    excerpt:
-      "The companion filing of the same HT Insight piece - why the correction is being measured in margins, not headcount.",
-    href: "https://www.hindustantimes.com/ht-insight/economy/india-inc-s-hiring-reset-is-showing-up-on-the-balance-sheet-101787998487133.html",
-    image: "/images/media/hiring-reset.jpg",
-    logo: "/images/logos/hindustan-times-word.png",
-  },
-  {
-    outlet: "Adgully",
-    type: "Feature",
-    title: "AI's Biggest Risk? The Scale of a Mistake",
-    excerpt:
-      "Follow-up coverage of the argument that AI's real danger is not error itself but the scale at which a single error propagates.",
-    href: "https://www.adgully.com/post/19071/ais-biggest-risk-the-scale-of-a-mistake",
-    image: "/images/media/domino-risk.jpg",
-    logo: "/images/logos/adgully-word.png",
   },
   {
     outlet: "NDTV",
